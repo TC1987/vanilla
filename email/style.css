@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: inherit;
+}
+
+body {
+	box-sizing: border-box;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#emailList {
+	width: 100%;
+	list-style: none;
+}
+
+.emailList__item {
+	width: 100%;
+	padding: .5em;
+	border: 1px solid #333;
+
+}
+
+.emailList__item:not(:first-child) {
+	border-top: none;
+}
+
+.email {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.email__checkbox {
+	flex: 1;
+}
+
+.email__subject {
+	flex: 2;
+}
+
+.email__body {
+	flex: 14;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "email",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "npm-run-all --parallel run data-server",
+    "run": "live-server",
+    "data-server": "json-server --watch db.json",
+    "compile:sass": "node-sass style.scss style.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5"
+  }
+}

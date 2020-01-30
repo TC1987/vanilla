@@ -1,0 +1,29 @@
+{
+	"emails": [
+		{
+			"id": 1,
+			"subject": "Monday",
+			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit eu ligula eget tristique. Aliquam urna dolor, mollis at aliquam ac, commodo eget lorem. Nulla sed enim nunc."
+		},
+		{
+			"id": 2,
+			"subject": "Tuesday",
+			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit eu ligula eget tristique. Aliquam urna dolor, mollis at aliquam ac, commodo eget lorem. Nulla sed enim nunc."
+		},
+		{
+			"id": 3,
+			"subject": "Wednesday",
+			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit eu ligula eget tristique. Aliquam urna dolor, mollis at aliquam ac, commodo eget lorem. Nulla sed enim nunc."
+		},
+		{
+			"id": 4,
+			"subject": "Thursday",
+			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit eu ligula eget tristique. Aliquam urna dolor, mollis at aliquam ac, commodo eget lorem. Nulla sed enim nunc."
+		},
+		{
+			"id": 5,
+			"subject": "Friday",
+			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit eu ligula eget tristique. Aliquam urna dolor, mollis at aliquam ac, commodo eget lorem. Nulla sed enim nunc."
+		}
+	]
+}
