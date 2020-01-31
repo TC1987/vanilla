@@ -1,5 +1,6 @@
 const casual = require('casual-browserify');
 const emailsEndpoint = 'http://localhost:3000/emails';
+let toDelete = [];
 
 const emailList = document.querySelector('#emailList');
 
@@ -17,7 +18,7 @@ const addNewEmail = email => {
 	`;
 
 	li.appendChild(a);
-	emailList.appendChild(li);
+	emailList.prepend(li);
 }
 
 const getInitialEmails = () => {
@@ -25,24 +26,27 @@ const getInitialEmails = () => {
 }
 
 const setupEventListeners = () => {
+	const deleteButton = document.querySelector('.buttons__delete');
 	const createButton = document.querySelector('.buttons__create');
 	let intervalId;
 
-	createButton.addEventListener('click', () => {
+	createButton.addEventListener('click', e => {
+		e.preventDefault();
+		
 		if (intervalId) {
 			clearInterval(intervalId);
 			intervalId = null;
+			createButton.textContent = 'Create New Emails';
 		} else {
+			createButton.textContent = 'Stop';
 			intervalId = setInterval(async () => {
 				const email = {};
-				const hrefArray = emailList.lastChild.lastChild.getAttribute('href').split('/');
+				const hrefArray = emailList.firstChild.children[0].getAttribute('href').split('/');
 	
 				email.id = parseInt(hrefArray[hrefArray.length - 1]) + 1;
 				email.subject = casual.title;
 				email.body = casual.sentences(n = 10);
 	
-				addNewEmail(email);
-
 				const createdEmail = await fetch(emailsEndpoint, {
 					method: 'POST',
 					headers: {
@@ -50,19 +54,39 @@ const setupEventListeners = () => {
 					},
 					body: JSON.stringify(email)
 				}).then(response => {
-					return response.json()
+					return response.json();
 				});
+
+				addNewEmail(createdEmail);
 
 				console.log('Created Email: ', createdEmail);
 			}, 2000);
 		}
+	});
 
+	emailList.addEventListener('click', e => {
+		if (e.target.type === 'checkbox') {
+			toDelete.push(e.target.parentElement.parentElement)
+		}
+	});
+
+	deleteButton.addEventListener('click', () => {
+		if (!toDelete.length) {
+			return;
+		}
+
+		console.log('Deleting...');
+
+		toDelete.forEach(el => {
+			console.log(el);
+			el.remove()
+		});
+
+		toDelete = [];
 	})
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
 	await getInitialEmails();
 	setupEventListeners();
-
-	// adds new emails to list
 });

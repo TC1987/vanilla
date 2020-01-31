@@ -6,14 +6,20 @@
 	box-sizing: inherit;
 }
 
+:root {
+	font-size: 62.5%;
+}
+
 body {
 	box-sizing: border-box;
 	background-color: #fcba03;
 	height: 100vh;
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: .5px;
 }
 
 .container {
-	width: 80%;
+	width: 60%;
 	margin: auto;
 	height: 100%;
 	display: flex;
@@ -22,20 +28,27 @@ body {
 	justify-content: space-evenly;
 }
 
+.title {
+	font-family: 'Amatic SC', cursive;
+	font-size: 6rem;
+}
+
 #emailList {
 	width: 100%;
 	list-style: none;
+	height: 60%;
+	overflow-y: scroll;
+	background-color: #f1b100;
 }
 
 .emailList__item {
 	width: 100%;
-	padding: .5em;
-	border: 1px solid #333;
-
+	padding: 1em;
+	font-size: 1.5rem;
 }
 
 .emailList__item:not(:first-child) {
-	border-top: none;
+	border-top: 1px solid #e6a800;
 }
 
 .email {
@@ -43,24 +56,64 @@ body {
 	align-items: center;
 	flex-wrap: nowrap;
 	text-decoration: none;
+	color: black;
 }
 
 .email__checkbox {
 	flex: 1;
+	margin-right: 1em;
 }
 
-.email__subject {
-	flex: 2;
+/* .email input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
 }
 
-.email__body {
-	flex: 14;
+.email__checkbox {
+	margin-right: 1em;
+	background-color: red;
+	width: 30px;
+	height: 30px;
+}
+
+.email__checkbox:hover {
+	background-color: blue;
+}
+
+.email input:checked {
+	background-color:
+} */
+
+.email__subject, .email__body {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
+.email__subject {
+	flex-basis: 20%;
+	margin-right: 1.5em;
+	
+}
+
+.email__body {
+	flex-basis: 70%;
+}
+
 .buttons__create, .buttons__delete {
 	padding: 1em 2em;
 	border-radius: 4px;
+	width: 180px;
+	font-family: inherit;
+	font-size: 1.3em;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.buttons__create {
+	margin-right: 1em;
 }
