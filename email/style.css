@@ -8,11 +8,18 @@
 
 body {
 	box-sizing: border-box;
+	background-color: #fcba03;
+	height: 100vh;
 }
 
 .container {
 	width: 80%;
-	margin: 0 auto;
+	margin: auto;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 #emailList {
@@ -35,6 +42,7 @@ body {
 	display: flex;
 	align-items: center;
 	flex-wrap: nowrap;
+	text-decoration: none;
 }
 
 .email__checkbox {
@@ -47,4 +55,12 @@ body {
 
 .email__body {
 	flex: 14;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.buttons__create, .buttons__delete {
+	padding: 1em 2em;
+	border-radius: 4px;
 }
